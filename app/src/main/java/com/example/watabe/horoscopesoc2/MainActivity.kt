@@ -5,14 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 
-
 class MainActivity : AppCompatActivity() {
-    val horoImgMap = mapOf(
-            "おひつじ座" to R.drawable.aries,"おうし座" to R.drawable.taurus,"ふたご座" to R.drawable.gemini,
-            "かに座" to R.drawable.cancer,"しし座" to R.drawable.leo,"おとめ座" to R.drawable.virgo,
-            "てんびん座" to R.drawable.libra,"さそり座" to R.drawable.scorpio,"いて座" to R.drawable.sagittarius,
-            "やぎ座" to R.drawable.capricorn,"みずがめ座" to R.drawable.aquarius,"うお座" to R.drawable.pisces
-    )
 
     val horoResMap = mapOf(
             "おひつじ座" to "今週で２１３日連続で星座占い１２位。名前に「哉」がつく人物に要注意！木村拓哉、谷間郁哉など",
@@ -29,51 +22,31 @@ class MainActivity : AppCompatActivity() {
             "うお座" to "サングラスが最も似合う日！"
     )
 
-    val horoList = listOf(
-            "おひつじ座", "おうし座", "ふたご座",
-            "かに座","しし座","おとめ座",
-            "てんびん座","さそり座","いて座",
-            "やぎ座", "みずがめ座", "うお座")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//星座を選択できるスピナー
-        val spnHoro = findViewById(R.id.spnHoro) as Spinner
-        //星座の画像を表示するイメージビュー
-        val imgHoro = findViewById(R.id.imgHoro) as ImageView
-        //星占いの結果を表示するテキストビュー
-        val txtCont = findViewById(R.id.txtCont) as TextView
 
+        //星座を選択できるスピナー
+        val spnHoro = findViewById(R.id.spnHoro) as Spinner
+
+        //スピナーに表示するリストの作成
+        val horoList = listOf("おひつじ座","おうし座","ふたご座","かに座","しし座","おとめ座","てんびん座","さそり座","いて座","やぎ座","みずがめ座","うお座")
         //スピナーに星座を設定する。
         spnHoro.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, horoList)
 
         //スピナーにイベントを登録する
         spnHoro.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            //スピナーで選択したアイテムを使う
+            override fun onItemSelected(parent:AdapterView<*>?, view: View?, position:Int, id:Long){
+                if( parent != null ) {
+                    val item = parent.selectedItem as String
+
+                }
+            }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            override fun onItemSelected(parent:AdapterView<*>?, view: View?, position:Int, id:Long){
-                if( parent != null ) {
-                    val item = parent.selectedItem as String
-                    val imgId = horoImgMap[item]
-
-                    if( imgId != null) {
-                        findViewById<ImageView>(R.id.imgHoro).setImageResource(imgId)
-                    }
-
-                    txtCont.text = ""
-                }
-            }
         }
-
-        //イメージビューのイベント登録
-        imgHoro.setOnClickListener {
-            val item = spnHoro.selectedItem as String
-            txtCont.text =horoResMap[item]
-        }
-
-
     }
 }
