@@ -42,8 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/spnHoro"
-        app:layout_constraintTop_toBottomOf="@+id/imgTitle"
-        app:srcCompat="@drawable/aries" />
+        app:layout_constraintTop_toBottomOf="@+id/imgTitle" />
 
     <ScrollView
         android:id="@+id/sclView"
