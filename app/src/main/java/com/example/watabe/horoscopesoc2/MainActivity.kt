@@ -7,7 +7,7 @@ import android.widget.*
 
 class MainActivity : AppCompatActivity() {
 
-    val horoResMap = mapOf(
+    val mapHoro = mapOf(
             "おひつじ座" to "今週で２１３日連続で星座占い１２位。名前に「哉」がつく人物に要注意！木村拓哉、谷間郁哉など",
             "おうし座" to "朝から食パンを一斤食べれば運気は上昇！",
             "ふたご座" to "朝からダル重、アリナミンＡを飲んで「よっしゃー」と叫ぼう。",
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        
         //星座を選択できるスピナー
         val spnHoro = findViewById(R.id.spnHoro) as Spinner
 
