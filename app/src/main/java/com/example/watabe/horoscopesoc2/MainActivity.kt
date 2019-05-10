@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
+
         //星座を選択できるスピナー
         val spnHoro = findViewById(R.id.spnHoro) as Spinner
 
@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
             //スピナーで選択したアイテムを使う
             override fun onItemSelected(parent:AdapterView<*>?, view: View?, position:Int, id:Long){
                 if( parent != null ) {
-                    val item = parent.selectedItem as String
 
                 }
             }
